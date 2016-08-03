@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Code Link",
+  "description": "Working on LoansPQ site",
+  "version": "1.0",
+  "minimum_chrome_version": "18",
+
+  //"browser_action": {
+  //  "default_icon": "icon.png",
+  //  "default_popup": "popup.html"
+  //},
+  //"permissions":  [
+  //  "tabs",
+  //  "http://*/*",
+  //  "https://*/*"
+  //],
+  "devtools_page": "devtools.html"
+}
