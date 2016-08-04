@@ -1,6 +1,6 @@
-﻿function getSourcePath()
+﻿function getSourcePath() //The javascript is executed in the inspected page.
 {
-    function getClosestID(element) //The javascript is executed in the inspected page.
+    function getClosestID(element)
     {
         var currentElement = element;
         while (currentElement && !currentElement.id)
@@ -16,7 +16,7 @@
 
     var closestID = getClosestID($0);
     if (!closestID)
-        return "Path not available";
+        closestID = "__Page";
 
     var longestMatchCount = 0;
     var sourcePath = "";
@@ -30,7 +30,7 @@
     }
 
     if (!sourcePath)
-        return "Path not available";
+        return closestID + ": Path not available";
     else
         return sourcePath;
 }
