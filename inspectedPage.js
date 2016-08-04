@@ -31,7 +31,7 @@ function getSourcePath()
     }
 
     if (!sourcePath)
-        return closestID + ": Path not available";
+        return { element: closestID, path: "Path not available" };
     else
-        return sourcePath;
+        return { element: closestID, path: sourcePath };
 }
