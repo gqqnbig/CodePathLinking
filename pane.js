@@ -9,7 +9,14 @@
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-var path= getParameterByName("t");
+//var path= getParameterByName("t");
 var textBox=document.getElementById("path");
-textBox.value = path;
+//textBox.value = path;
 textBox.onmouseover = function () { this.select() };
+
+
+
+chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
+{
+    textBox.value = result;
+});
