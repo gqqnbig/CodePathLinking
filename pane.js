@@ -12,4 +12,6 @@ function onSelectionChanged()
     });
 }
 
+onSelectionChanged();
+
 chrome.devtools.panels.elements.onSelectionChanged.addListener(onSelectionChanged);
