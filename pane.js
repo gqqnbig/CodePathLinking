@@ -1,15 +1,15 @@
 ﻿
-var textBox=document.getElementById("path");
-textBox.onmouseover = function () { this.select() };
 var elementLabel = document.getElementById("elementLabel")
+var pathLink = document.getElementById("pathLink");
 
 function onSelectionChanged()
 {
-    chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
-    {
-        elementLabel.innerText = result.element;
-        textBox.value = result.path;
-    });
+	chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
+	{
+		pathLink.innerText = result.path;
+		pathLink.href = "vs:" + result.path;
+		elementLabel.innerText = result.element;
+	});
 }
 
 onSelectionChanged();
