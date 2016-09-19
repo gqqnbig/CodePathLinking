@@ -3,7 +3,7 @@ function getSourcePath()
 {
     function getClosestID(element)
     {
-        var currentElement = element;
+        let currentElement = element;
         while (currentElement && !currentElement.id)
         {
             currentElement = currentElement.parentNode;
@@ -15,13 +15,13 @@ function getSourcePath()
         return currentElement.id;
     }
 
-    var closestID = getClosestID($0);
+    let closestID = getClosestID($0);
     if (!closestID)
         closestID = "__Page";
 
-    var longestMatchCount = 0;
-    var sourcePath = "";
-    for (var propertyName in codeMap)
+    let longestMatchCount = 0;
+    let sourcePath = "";
+    for (let propertyName in codeMap)
     {
         if (closestID.startsWith(propertyName) && propertyName.length > longestMatchCount)
         {
@@ -30,8 +30,19 @@ function getSourcePath()
         }
     }
 
+    const pagePath = codeMap["__Page"];
+    const masterPath = codeMap["__Master"];
+
+    let controlObj;
+
     if (!sourcePath)
-        return { element: closestID, path: "Path not available" };
+        controlObj = { element: closestID };
     else
-        return { element: closestID, path: sourcePath };
+        controlObj = { element: closestID, path: sourcePath };
+
+    return {
+        pagePath,
+        masterPath,
+        control: controlObj
+    };
 }
