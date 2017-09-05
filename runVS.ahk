@@ -10,6 +10,6 @@ if(p>0)
 	run WScript.exe open-in-msvs.vbs %filePath% %keyword%
 }
 else
-	run "WScript.exe open-in-msvs.vbs" %filePath%
+	run WScript.exe open-in-msvs.vbs %filePath%
 
 exit
