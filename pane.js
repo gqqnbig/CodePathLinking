@@ -1,7 +1,7 @@
-﻿let pageLink = document.getElementById("pageLink");
-let masterLink = document.getElementById("masterLink");
-let controlLabel = document.getElementById("controlLabel")
-let controlLink = document.getElementById("controlLink");
+﻿const pageLink = document.getElementById("pageLink");
+const masterLink = document.getElementById("masterLink");
+const controlLabel = document.getElementById("controlLabel")
+const controlLink = document.getElementById("controlLink");
 
 function onSelectionChanged()
 {
