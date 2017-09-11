@@ -12,7 +12,6 @@ function inferOriginalId(clientID)
 		return clientID.substr(p+1);
 }
 
-
 function onSelectionChanged()
 {
 	chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
