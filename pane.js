@@ -32,7 +32,7 @@ function onSelectionChanged()
         else
         {
             controlLink.innerText = "Path not available";
-            controlLink.href = "";
+            controlLink.removeAttribute("href");
         }
 	});
 }
