@@ -5,11 +5,13 @@ const controlLink = document.getElementById("controlLink");
 
 function inferOriginalId(clientID)
 {
-	const p = clientID.lastIndexOf("_");
-	if (p === -1)
-		return clientID;
-	else
-		return clientID.substr(p+1);
+	const ids = clientID.split("_");
+	for (var i = ids.length-1; i >=0; i--)
+	{
+		if (/\d+/.test(ids[i]) === false)
+			return ids[i];
+	}
+	return undefined;
 }
 
 function onSelectionChanged()
