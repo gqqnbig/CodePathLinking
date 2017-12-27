@@ -34,14 +34,15 @@ On Error Resume Next
 
 MSVS_versions = Array _
 ( _
-    "VisualStudio.DTE.7", _
-    "VisualStudio.DTE.7.1", _
-    "VisualStudio.DTE.8.0", _
-    "VisualStudio.DTE.9.0", _
-    "VisualStudio.DTE.10.0", _
-    "VisualStudio.DTE.11.0", _
+    "VisualStudio.DTE.15.0", _
+    "VisualStudio.DTE.14.0", _
     "VisualStudio.DTE.12.0", _
-    "VisualStudio.DTE.14.0" _
+    "VisualStudio.DTE.11.0", _
+    "VisualStudio.DTE.10.0", _
+    "VisualStudio.DTE.9.0", _
+    "VisualStudio.DTE.8.0", _
+    "VisualStudio.DTE.7.1", _
+    "VisualStudio.DTE.7" _
 )
 
 For each version in MSVS_versions
