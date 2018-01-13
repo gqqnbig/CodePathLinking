@@ -32,7 +32,7 @@ function onSelectionChanged()
         }
         else
         {
-            controlLink.innerText = "Path not available";
+            controlLink.innerText = "Not in user control";
             controlLink.removeAttribute("href");
         }
 	});
