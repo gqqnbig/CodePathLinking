@@ -16,26 +16,28 @@ function inferOriginalId(clientID)
 
 function onSelectionChanged()
 {
-	chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
-	{
+    chrome.devtools.inspectedWindow.eval("(" + getSourcePath + ")()", function (result, exceptionInfo)
+    {
+        const originalId = inferOriginalId(result.control.element);
+
         pageLink.innerText = result.pagePath;
-        pageLink.href = "vs:" + result.pagePath;
+        pageLink.href = "vs:" + result.pagePath + (originalId ? ":" + originalId : "");
 
         masterLink.innerText = result.masterPath;
-        masterLink.href = "vs:" + result.masterPath;
+        masterLink.href = "vs:" + result.masterPath + (originalId ? ":" + originalId : "");
 
         controlLabel.innerText = result.control.element;
         if (result.control.path)
         {
             controlLink.innerText = result.control.path;
-            controlLink.href = "vs:" + result.control.path + ":" + inferOriginalId(result.control.element);
+            controlLink.href = "vs:" + result.control.path + (originalId ? ":" + originalId : "");
         }
         else
         {
             controlLink.innerText = "Not in user control";
             controlLink.removeAttribute("href");
         }
-	});
+    });
 }
 
 onSelectionChanged();
