@@ -2,6 +2,9 @@
 
 filePath:=A_Args[1]
 filePath:=SubStr(filePath,4)
+
+filePath:=StrReplace(filePath, "%5C", "\")
+
 p:=InStr(filePath,":",false,3)
 if(p>0)
 {
