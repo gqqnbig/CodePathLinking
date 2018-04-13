@@ -65,6 +65,9 @@ dte.UserControl = True
 
 dte.ItemOperations.OpenFile filename
  if keyword is not nothing then
- 	dte.ExecuteCommand "Edit.Find",keyword
+ 	'Based on https://msdn.microsoft.com/en-us/library/c785s0kz.aspx#Anchor_5 , ^ is the escape character.
+	' https://docs.microsoft.com/en-us/visualstudio/ide/reference/find-command
+	' Available commands are what we can type in Visual Studio's Command Window.
+ 	dte.ExecuteCommand "Edit.Find", "ID=^""" & keyword & "^"" /doc"
  end if
 
