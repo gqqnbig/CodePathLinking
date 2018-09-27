@@ -68,6 +68,7 @@ dte.ItemOperations.OpenFile filename
  	'Based on https://msdn.microsoft.com/en-us/library/c785s0kz.aspx#Anchor_5 , ^ is the escape character.
 	' https://docs.microsoft.com/en-us/visualstudio/ide/reference/find-command
 	' Available commands are what we can type in Visual Studio's Command Window.
- 	dte.ExecuteCommand "Edit.Find", "ID=^""" & keyword & "^"" /doc"
+	dte.ExecuteCommand "Edit.Find", "(?<=id\=^"")" & keyword & "(?=^"") /doc /regex"
+	
  end if
 
