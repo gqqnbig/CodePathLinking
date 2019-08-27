@@ -14,7 +14,7 @@ Then click the path link, Visual Studio will open the file and locate the line w
 
 If Source Code Path cannot find paths at all, check the source code of the target web page, and see if 
 
-```
+```html
 <script id="codeMapElement">
     var codeMap={};
     ...
@@ -24,7 +24,7 @@ exists.
 
 If Source Code Path can find user control path, but not page path or master page path, go to CGlobalPage.vb, paste the following code.
 
-```
+```vb
 Private Sub CGlobalUserControl_Load(sender As Object, e As EventArgs) Handles Me.Load
 	If ConfigurationManager.AppSettings("UseCodeMap") = "Y" AndAlso Request.QueryString("UseCodeMap") <> "N" OrElse
 		ConfigurationManager.AppSettings("UseCodeMap") = "" AndAlso Request.QueryString("UseCodeMap") = "Y" Then
@@ -36,10 +36,10 @@ Private Sub CGlobalUserControl_Load(sender As Object, e As EventArgs) Handles Me
 				'Don't have to save the data to view state, and don't output if the control is not visible.
 				AddHandler Page.SaveStateComplete, AddressOf AddCodeMapItem
 				AddHandler Page.SaveStateComplete, Sub()
-													   If Form IsNot Nothing Then
-														   Form.Attributes("data-environment") = RuntimeEnvironment.ToString()
-													   End If
-												   End Sub
+					If Form IsNot Nothing Then
+						Form.Attributes("data-environment") = RuntimeEnvironment.ToString()
+					End If
+				End Sub
 			End If
 		End If
 	End If
@@ -74,6 +74,3 @@ Sub AddCodeMapItem(sender As Object, e As EventArgs)
 	End If
 End Sub
 ```
-
-
-
